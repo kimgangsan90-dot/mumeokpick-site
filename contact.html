@@ -7,14 +7,17 @@
   <meta name="description" content="뭐먹픽 운영자 정보와 문의 방법입니다.">
   <link rel="canonical" href="https://mumeokpick.kr/contact.html">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="review">
-  <div class="review-bar"><div class="wrap">검토용 표시: <span class="k-todo">노란색</span> 채워야 할 빈칸 · <span class="k-guess">파란색</span> 추측한 내용. 공개 전에 정리하세요.</div></div>
+  <div class="review-bar"><div class="wrap">검토용 표시: <span class="k-todo">노란색</span> 채워야 할 빈칸, <span class="k-guess">파란색</span> 추측한 내용. 공개 전에 정리하세요.</div></div>
 
   <header class="site-header">
     <div class="wrap">
-      <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true">픽</span>뭐먹픽</a>
+      <a class="logo" href="index.html">뭐먹픽</a>
       <nav class="nav" aria-label="주요 메뉴">
         <a href="index.html">앱 소개</a>
         <a href="privacy.html">개인정보처리방침</a>
@@ -23,47 +26,51 @@
     </div>
   </header>
 
-  <main>
+  <section class="page-head">
     <div class="wrap">
       <h1>연락처</h1>
-      <p class="lead">앱 사용 중 불편한 점, 제안, 제휴 문의는 이메일로 보내 주세요. <span class="guess">평일 기준 2일 안에</span> 답장드려요.</p>
+      <p>앱을 쓰다 불편한 점, 추가됐으면 하는 메뉴, 제휴 문의 모두 이메일로 보내 주세요.</p>
+    </div>
+  </section>
 
-      <div class="cards">
-        <div class="card">
-          <div class="emoji" aria-hidden="true">✉️</div>
-          <h3>이메일 문의</h3>
-          <p><span class="todo">[문의 이메일, 예: support@mumeokpick.kr]</span></p>
-        </div>
-        <div class="card">
-          <div class="emoji" aria-hidden="true">📞</div>
-          <h3>전화</h3>
-          <p><span class="todo">[대표 전화번호]</span></p>
-        </div>
+  <main class="doc-main">
+    <div class="wrap doc">
+      <h2>자주 묻는 질문</h2>
+      <div class="faq">
+        <details><summary>회원가입을 해야 하나요?</summary><p>아니요. 뭐먹픽은 로그인 없이 바로 쓸 수 있어요.</p></details>
+        <details><summary>앱은 무료인가요?</summary><p><span class="guess">네, 무료예요. 앱 안에 광고가 나올 수 있어요.</span></p></details>
+        <details><summary>휴대폰을 바꾸면 기록이 옮겨지나요?</summary><p>기록은 휴대폰 안에만 저장돼서 새 휴대폰으로 옮겨지지 않아요.</p></details>
+        <details><summary>먹고 싶은 메뉴가 안 나와요</summary><p>아래 이메일로 메뉴 이름을 보내 주세요. 검토해서 추가할게요.</p></details>
       </div>
 
+      <h2>이메일</h2>
+      <p class="mail"><span class="todo">[문의 이메일, 예: support@mumeokpick.kr]</span></p>
+      <p><span class="guess">평일 기준 2일 안에</span> 답장드려요.</p>
+
+      <h2>전화</h2>
+      <p><span class="todo">[대표 전화번호]</span></p>
+
       <h2>사업자 정보</h2>
-      <article class="doc">
-        <dl class="info">
-          <dt>상호</dt><dd><span class="todo">[상호]</span></dd>
-          <dt>대표자</dt><dd><span class="todo">[대표자 이름]</span></dd>
-          <dt>사업자등록번호</dt><dd><span class="todo">[000-00-00000]</span></dd>
-          <dt>통신판매업 신고번호</dt><dd><span class="todo">[해당 시 기재, 해당 없으면 행 삭제]</span></dd>
-          <dt>사업장 주소</dt><dd><span class="todo">[사업장 주소]</span></dd>
-          <dt>이메일</dt><dd><span class="todo">[문의 이메일]</span></dd>
-          <dt>전화</dt><dd><span class="todo">[대표 전화번호]</span></dd>
-        </dl>
-      </article>
+      <dl class="info">
+        <dt>상호</dt><dd><span class="todo">[상호]</span></dd>
+        <dt>대표자</dt><dd><span class="todo">[대표자 이름]</span></dd>
+        <dt>사업자등록번호</dt><dd><span class="todo">[000-00-00000]</span></dd>
+        <dt>통신판매업 신고번호</dt><dd><span class="todo">[해당 시 기재, 해당 없으면 행 삭제]</span></dd>
+        <dt>사업장 주소</dt><dd><span class="todo">[사업장 주소]</span></dd>
+      </dl>
 
       <h2>개인정보 관련 요청</h2>
-      <p>개인정보 열람, 정정, 삭제 요청도 위 이메일로 받습니다. 자세한 내용은 <a href="privacy.html">개인정보처리방침</a>을 확인해 주세요.</p>
+      <p>개인정보 열람, 정정, 삭제 요청도 위 이메일로 받아요. 자세한 내용은 <a href="privacy.html">개인정보처리방침</a>에 있어요.</p>
     </div>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
-      <p><strong>뭐먹픽</strong> · 운영: <span class="todo">[상호]</span> · 대표: <span class="todo">[대표자 이름]</span></p>
-      <p>사업자등록번호: <span class="todo">[000-00-00000]</span> · 이메일: <span class="todo">[문의 이메일]</span></p>
-      <p><a href="privacy.html">개인정보처리방침</a> · <a href="contact.html">연락처</a></p>
+      <span class="logo">뭐먹픽</span>
+      <p>운영 <span class="todo">[상호]</span>, 대표 <span class="todo">[대표자 이름]</span></p>
+      <p>사업자등록번호 <span class="todo">[000-00-00000]</span></p>
+      <p>문의 <span class="todo">[문의 이메일]</span></p>
+      <p><a href="privacy.html">개인정보처리방침</a> &nbsp; <a href="contact.html">연락처</a></p>
       <p>© 2026 <span class="todo">[상호]</span></p>
     </div>
   </footer>
