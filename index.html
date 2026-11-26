@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>뭐먹픽 - 오늘 뭐 먹지 고민 끝</title>
-  <meta name="description" content="뭐먹픽은 오늘 먹을 메뉴를 하나 골라 주는 음식 추천 앱입니다.">
+  <meta name="description" content="뭐먹픽은 요즘 뜨는 메뉴에서 오늘 먹을 메뉴 세 가지를 골라 주는 음식 추천 앱입니다.">
   <link rel="canonical" href="https://mumeokpick.kr/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="review">
@@ -30,105 +30,113 @@
     <div class="wrap">
       <div class="hero-copy">
         <h1>오늘<br>뭐 먹지?</h1>
-        <p>점심 메뉴 회의는 이제 그만. 버튼 한 번이면 뭐먹픽이 오늘 메뉴를 딱 하나 골라 드려요.</p>
+        <p>요즘 뜨는 메뉴에서 세 가지를 골라 드려요. 마음에 드는 걸 누르면 고민 끝.</p>
         <a class="store" href="#" aria-disabled="true">
           <span>구글 플레이에서 받기<small><span class="todo">출시 예정, 링크 빈칸</span></small></span>
         </a>
       </div>
 
-      <div class="phone" aria-label="뭐먹픽 앱 결과 화면 미리보기">
-        <div class="screen" aria-live="polite">
-          <div class="screen-top"><span id="today">오늘</span><span id="pick-no">1번째 픽</span></div>
-          <div class="pick-card">
-            <p class="pick-label">오늘의 픽</p>
-            <p class="pick-name" id="pick-name">김치찌개</p>
-            <p class="pick-note" id="pick-note">푹 익은 김치에 돼지고기 듬뿍. 밥 한 공기 뚝딱.</p>
-            <div class="tags">
-              <span class="tag where" id="pick-where">배달·집밥</span>
-              <span class="tag heat" id="pick-heat" data-heat="2">맵기 2단계</span>
+      <!-- 앱의 홈 화면을 그대로 줄여 놓은 것. 앱 화면(추천 3개)이 바뀌면 여기도 같이 고친다. -->
+      <div>
+        <div class="phone" aria-label="뭐먹픽 앱 홈 화면 미리보기">
+          <div class="app">
+            <div class="app-top">
+              <span class="app-brand">뭐먹픽</span>
+              <span class="app-sw" aria-hidden="true"><span class="on">점심</span><span>저녁</span></span>
             </div>
+            <p class="app-ask">오늘 점심, 뭐가 당겨?</p>
+            <p class="app-sub">지금 뜨는 메뉴에서 골라봤어.</p>
+            <div class="app-modes" role="group" aria-label="어떻게 먹을지">
+              <button type="button" class="app-mode" data-mode="home" aria-pressed="false"><strong>해먹기</strong><span>직접 만들어 먹기</span></button>
+              <button type="button" class="app-mode" data-mode="delivery" aria-pressed="true"><strong>배달</strong><span>편하게 주문하기</span></button>
+            </div>
+            <div class="app-sec">
+              <h3>오늘의 추천 <em>3</em></h3>
+              <span class="app-toggle" aria-hidden="true">거하게</span>
+            </div>
+            <div class="app-picks" id="picks" aria-live="polite"></div>
+            <div class="app-actions">
+              <button type="button" class="app-btn" id="random">못 고르겠어, 골라줘</button>
+              <button type="button" class="app-btn dark" id="again">다른 메뉴 추천받기</button>
+            </div>
+            <div class="app-tabs" aria-hidden="true"><span class="on">홈</span><span>트렌드</span></div>
           </div>
-          <div class="screen-actions">
-            <button class="btn-soft" id="decide" type="button">이걸로 결정</button>
-            <button class="btn-main" id="reroll" type="button">다시 뽑기</button>
-          </div>
-          <p class="decided" id="decided"></p>
         </div>
+        <p class="phone-note">예시 화면이에요. 눌러 볼 수 있어요. 실제 추천은 날마다 달라져요.</p>
       </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <h2>쓰는 법은 세 단계</h2>
-      <ol class="flow">
-        <li>
-          <div class="mini" aria-hidden="true"><div class="in">
-            <span class="date">11월 25일 수요일</span>
-            <span class="big">오늘<br>뭐 먹지?</span>
-            <span class="say">국물이 당기는 날씨예요</span>
-            <span class="go">메뉴 뽑기</span>
-          </div></div>
-          <h3>버튼 누르기</h3>
-          <p>앱을 열면 뽑기 버튼 하나만 있어요.</p>
-        </li>
-        <li>
-          <div class="mini" aria-hidden="true"><div class="in">
-            <span class="date">1/2</span>
-            <span class="q">어떻게 먹어요?</span>
-            <span class="opt on">배달</span>
-            <span class="opt">집밥</span>
-            <span class="skip">건너뛰기</span>
-          </div></div>
-          <h3>조건 고르기</h3>
-          <p><span class="guess">배달인지 집밥인지, 맵기는 어느 정도인지 하나씩 골라요. 건너뛰어도 돼요.</span></p>
-        </li>
-        <li>
-          <div class="mini" aria-hidden="true"><div class="in">
-            <span class="date">오늘의 픽</span>
-            <span class="card"><small>배달 · 맵기 3단계</small><span class="big">마라로제<br>떡볶이</span></span>
-            <span class="go">이걸로 결정</span>
-          </div></div>
-          <h3>메뉴 받기</h3>
-          <p>메뉴 한 장이 나와요. 별로면 다시 뽑으면 돼요.</p>
-        </li>
-      </ol>
     </div>
   </section>
 
   <section class="section rice">
     <div class="wrap">
-      <h2>고르는 건 뭐먹픽이,<br>먹는 건 당신이</h2>
-      <ul class="points">
+      <h2>쓰는 법은 세 단계</h2>
+      <ol class="flow">
         <li>
-          <h3>배달인지 집밥인지 맞춰요</h3>
-          <p>시켜 먹을 때와 해 먹을 때 어울리는 메뉴가 달라요. 상황에 맞는 것만 골라요.</p>
+          <div class="bit" aria-hidden="true">
+            <span class="chip on">점심</span><span class="chip">저녁</span>
+            <span class="chip">해먹기</span><span class="chip on">배달</span><span class="chip">거하게</span>
+          </div>
+          <h3>상황 고르기</h3>
+          <p>점심인지 저녁인지, 해 먹을지 시켜 먹을지 골라요. 푸짐하게 먹고 싶은 날엔 "거하게"를 켜요.</p>
         </li>
         <li>
-          <h3>맵기도 챙겨요</h3>
-          <p><span class="guess">매운 걸 못 먹는 날엔 순한 메뉴만, 땡기는 날엔 화끈한 메뉴로.</span></p>
+          <div class="bit" aria-hidden="true">
+            <span class="row">마라로제 떡볶이 <small>이걸로!</small></span>
+            <span class="row">가츠동 <small>이걸로!</small></span>
+            <span class="row">햄버거 <small>이걸로!</small></span>
+          </div>
+          <h3>추천 세 가지 보기</h3>
+          <p>요즘 뜨는 메뉴에서 서로 다른 종류로 세 가지가 나와요.</p>
         </li>
         <li>
-          <h3>요즘 뜨는 메뉴도 섞어요</h3>
-          <p><span class="guess">검색량과 블로그 언급 같은 공개 자료로 요즘 인기 메뉴를 함께 추천해요.</span></p>
+          <div class="bit" aria-hidden="true">
+            <span class="chip">못 고르겠어, 골라줘</span>
+            <span class="chip dark">다른 메뉴 추천받기</span>
+          </div>
+          <h3>"이걸로!" 누르기</h3>
+          <p>못 고르겠으면 대신 골라 달라고 하고, 다 별로면 다른 세 가지를 받아요.</p>
         </li>
-      </ul>
+      </ol>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap">
+      <h2>고르는 건 뭐먹픽이,<br>먹는 건 당신이</h2>
+      <ul class="points">
+        <li>
+          <h3>요즘 뜨는 메뉴에서 골라요</h3>
+          <p>검색 관심도와 블로그 언급량 같은 공개 자료를 날마다 모아서, 이번 주에 뜨는 메뉴를 추천에 섞어요.</p>
+        </li>
+        <li>
+          <h3>같은 메뉴만 나오지 않아요</h3>
+          <p>며칠 안에 본 메뉴는 덜 나와요. 세 가지도 서로 겹치지 않게 골라요.</p>
+        </li>
+        <li>
+          <h3>고른 다음까지 이어져요</h3>
+          <p>해 먹을 땐 레시피 영상 찾기로, 시켜 먹을 땐 근처 가게 찾기로 바로 넘어가요. 누르면 동영상·지도 서비스가 따로 열려요.</p>
+        </li>
+        <li>
+          <h3>트렌드만 따로 볼 수 있어요</h3>
+          <p>트렌드 탭에서 검색이 늘어난 메뉴, 많이 찾는 레시피와 배달 메뉴를 한눈에 봐요.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section rice">
+    <div class="wrap">
       <h2>가입 없이 바로 써요</h2>
       <div class="safe">
-        <div><strong>로그인이 없어요</strong><p>회원가입도, 이메일 입력도 없어요. 설치하고 바로 뽑으면 돼요.</p></div>
-        <div><strong>기록은 내 폰에만</strong><p>결정한 메뉴 기록은 내 휴대폰 안에만 저장돼요. 앱을 지우면 함께 지워져요.</p></div>
+        <div><strong>로그인이 없어요</strong><p>회원가입도, 이메일 입력도 없어요. 설치하고 바로 쓰면 돼요.</p></div>
+        <div><strong>기록은 내 폰에만</strong><p>본 메뉴와 고른 메뉴의 기록은 내 휴대폰 안에만 저장돼요. 앱을 지우면 함께 지워져요.</p></div>
       </div>
     </div>
   </section>
 
   <section class="final">
     <div class="wrap">
-      <h2>오늘 메뉴, 지금 뽑아 볼까요?</h2>
+      <h2>오늘 메뉴, 지금 골라 볼까요?</h2>
       <a class="store" href="#" aria-disabled="true">
         <span>구글 플레이에서 받기<small><span class="todo">출시 예정, 링크 빈칸</span></small></span>
       </a>
@@ -147,47 +155,65 @@
   </footer>
 
   <script>
+    // 휴대폰 속 예시 화면. 실제 앱처럼 세 가지를 한 번에 보여 주고, 해먹기/배달·다른 메뉴·골라줘·이걸로!만 흉내 낸다.
+    // 예시에는 일반 메뉴 이름만 쓴다(가게·사람 이름은 넣지 않는다).
     (function () {
-      var menus = [
-        ["김치찌개", "푹 익은 김치에 돼지고기 듬뿍. 밥 한 공기 뚝딱.", "배달·집밥", 2],
-        ["마라로제떡볶이", "얼얼한 마라에 크림을 더한 요즘 떡볶이.", "배달", 3],
-        ["제육볶음", "달고 매콤한 양념에 불맛 한 번. 쌈 싸 먹기 좋아요.", "배달·집밥", 2],
-        ["쌀국수", "뜨끈한 국물에 고수는 취향껏. 속이 편한 한 끼.", "배달", 0],
-        ["돈코츠라멘", "진한 돼지뼈 국물에 차슈 두 장.", "배달", 0],
-        ["비빔밥", "냉장고 속 나물 다 넣고 고추장 한 숟갈.", "집밥", 1],
-        ["후라이드치킨", "고민될 땐 역시 치킨. 반반도 좋아요.", "배달", 0],
-        ["부대찌개", "햄, 소시지, 라면 사리까지. 여럿이 먹기 좋아요.", "배달·집밥", 2],
-        ["물냉면", "살얼음 동동 새콤한 국물로 입가심.", "배달", 0],
-        ["순대국밥", "들깨가루 듬뿍, 다대기는 조금씩.", "배달", 1],
-        ["알리오올리오", "마늘, 올리브유, 페페론치노만 있으면 집에서 10분.", "집밥", 1],
-        ["연어덮밥", "간장 소스 살짝, 와사비는 취향대로.", "배달", 0]
-      ];
-      var i = 0, n = 1;
-      var nameEl = document.getElementById("pick-name");
-      var noteEl = document.getElementById("pick-note");
-      var whereEl = document.getElementById("pick-where");
-      var heatEl = document.getElementById("pick-heat");
-      var noEl = document.getElementById("pick-no");
-      var decidedEl = document.getElementById("decided");
-      var d = new Date();
-      document.getElementById("today").textContent = (d.getMonth() + 1) + "월 " + d.getDate() + "일";
-      document.getElementById("decide").addEventListener("click", function () {
-        decidedEl.textContent = "좋아요, 오늘은 " + nameEl.textContent + "!";
+      // [그림, 이유(없으면 ''), 식사 종류, 이름, 설명]
+      var SETS = {
+        delivery: [
+          [["🍢", "검색 1.3배", "든든하게", "마라로제 떡볶이", "얼얼한 마라에 로제를 더한 떡볶이."],
+           ["🍱", "", "든든하게", "가츠동", "돈까스에 계란을 얹은 덮밥."],
+           ["🍔", "", "든든하게", "햄버거", "패티와 채소를 빵 사이에."]],
+          [["🍜", "", "가볍게", "쌀국수", "뜨끈한 국물에 쌀면."],
+           ["🥩", "", "든든하게", "제육볶음", "매콤달콤하게 볶아 밥에 얹어 먹는 제육."],
+           ["🍚", "", "든든하게", "김치볶음밥", "김치를 볶아 밥과 함께."]]
+        ],
+        home: [
+          [["🍲", "", "든든하게", "김치찌개", "푹 익은 김치에 돼지고기."],
+           ["🍝", "", "가볍게", "알리오올리오", "마늘과 올리브유로 만드는 파스타."],
+           ["🍳", "", "가볍게", "계란볶음밥", "밥과 계란만 있으면 되는 볶음밥."]],
+          [["🍲", "", "가볍게", "소고기뭇국", "무와 소고기로 끓인 맑은 국."],
+           ["🍜", "", "가볍게", "비빔국수", "새콤달콤한 양념에 비빈 국수."],
+           ["🥩", "", "든든하게", "제육볶음", "매콤달콤하게 볶아 밥에 얹어 먹는 제육."]]
+        ]
+      };
+      var mode = "delivery", turn = 0;
+      var picks = document.getElementById("picks");
+      function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; }
+      function show() {
+        var set = SETS[mode][turn % 2];
+        picks.replaceChildren.apply(picks, set.map(function (m) {
+          var card = el("div", "app-card"), body = el("div"), why = el("div", "app-why"), side = el("div", "app-side");
+          if (m[1]) { why.append(el("b", "up", m[1]), " · "); }
+          why.append(m[2]);
+          body.append(why, el("div", "app-name", m[3]), el("div", "app-desc", m[4]));
+          var pill = el("button", "app-pill", "이걸로!");
+          pill.type = "button";
+          pill.setAttribute("aria-label", "오늘은 " + m[3] + "(으)로 정하기");
+          pill.onclick = function () { decide(m[3], "좋아, 오늘 점심은 이거!"); };
+          side.append(pill, el("span", "app-link", mode === "home" ? "레시피 보기" : "근처 찾기"));
+          card.append(el("div", "app-thumb", m[0]), body, side);
+          return card;
+        }));
+      }
+      function decide(name, say) {
+        var p = el("p", "app-picked", name);
+        p.append(el("small", "", say));
+        picks.replaceChildren(p);
+      }
+      document.querySelectorAll(".app-mode").forEach(function (b) {
+        b.onclick = function () {
+          mode = b.dataset.mode;
+          document.querySelectorAll(".app-mode").forEach(function (x) { x.setAttribute("aria-pressed", x === b); });
+          show();
+        };
       });
-      document.getElementById("reroll").addEventListener("click", function () {
-        var next;
-        do { next = Math.floor(Math.random() * menus.length); } while (next === i);
-        i = next; n += 1;
-        var m = menus[i];
-        nameEl.textContent = m[0];
-        noteEl.textContent = m[1];
-        whereEl.textContent = m[2];
-        heatEl.dataset.heat = m[3];
-        heatEl.textContent = m[3] === 0 ? "안 매워요" : "맵기 " + m[3] + "단계";
-        noEl.textContent = n + "번째 픽";
-        decidedEl.textContent = "";
-        nameEl.classList.remove("spin"); void nameEl.offsetWidth; nameEl.classList.add("spin");
-      });
+      document.getElementById("again").onclick = function () { turn += 1; show(); };
+      document.getElementById("random").onclick = function () {
+        var set = SETS[mode][turn % 2];
+        decide(set[Math.floor(Math.random() * 3)][3], "못 고르겠다길래 내가 골랐어.");
+      };
+      show();
     })();
   </script>
 </body>
